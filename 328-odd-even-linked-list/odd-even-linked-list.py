@@ -10,17 +10,12 @@ class Solution(object):
 
         odd = head
         even = head.next
-        curr = head
-        arr = []
-        while odd:
-            arr.append(odd.val)
-            odd = odd.next.next if odd.next else None
-        while even:
-            arr.append(even.val)
-            even = even.next.next if even.next else None
-        for val in arr:
-            curr.val = val
-            curr = curr.next
-        return head
-
+        even_head = head.next
+        while even and even.next:
+            odd.next = even.next 
+            odd = odd.next
+            even.next = odd.next
+            even = even.next
+        odd.next = even_head
+        return head 
         

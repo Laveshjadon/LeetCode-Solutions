@@ -1,7 +1,6 @@
 class Solution(object):
     def asteroidCollision(self, asteroids):
         stack = []
-
         for asteroid in asteroids:
             while stack and stack[-1] > 0 and asteroid < 0:
                 if stack[-1] < abs(asteroid):
@@ -12,7 +11,5 @@ class Solution(object):
                 break
             else:
                 stack.append(asteroid)
-
-        return stack
-        
+        return stack       
         

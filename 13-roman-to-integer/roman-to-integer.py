@@ -15,10 +15,9 @@ class Solution(object):
         output = 0
         for i in range(1,len(s)):
             if roman[s[i-1]] < roman[s[i]]:
-                output -= roman[s[i-1]] 
+                output -= roman[s[i-1]]
             else:
-                output += roman[s[i-1]] 
+                output += roman[s[i-1]]
         output = output + roman[s[len(s)-1]]
-        return output 
-        
+        return output
             

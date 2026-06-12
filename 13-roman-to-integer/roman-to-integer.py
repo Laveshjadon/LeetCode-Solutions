@@ -1,8 +1,8 @@
 class Solution(object):
     def romanToInt(self, s):
-    # step 1 write the meanig of words 
-    # define guidline if I is before the other later it whould be latter value that comes after smaller one(that's not I ) - value of hash
-    # if value comes after that we can add directly in the values 
+    # step 1 write the value of words 
+    # define guidline if smaller one  is before the other later than subtract from result else add
+    
         roman = {
             'I' : 1,
             'V' : 5,

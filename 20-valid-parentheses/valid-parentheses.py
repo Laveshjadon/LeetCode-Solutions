@@ -18,4 +18,3 @@ class Solution(object):
                     return False
                 stack.pop()
         return len(stack) == 0
-        

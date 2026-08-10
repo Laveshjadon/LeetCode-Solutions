@@ -2,15 +2,14 @@ class Solution(object):
     def canConstruct(self, ransomNote, magazine):
     
         hashh = {}
-        
-        for a in magazine:
-            if a in hashh:
-                hashh[a] += 1
+        for ch in magazine:
+            if ch in hashh:
+                hashh[ch] += 1
             else:
-                hashh[a] = 1
-        for b in ransomNote:
-            if b not in hashh or hashh[b] == 0:
+                hashh[ch] = 1
+        for ch in ransomNote:
+            if ch not in hashh or hashh[ch] == 0:
                 return False
             else:
-                hashh[b] -= 1
+                hashh[ch] -= 1
         return True

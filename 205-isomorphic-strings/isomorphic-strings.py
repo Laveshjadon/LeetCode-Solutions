@@ -1,24 +1,17 @@
 class Solution(object):
     def isIsomorphic(self, s, t):
-        hassh_s = {}
-        hassh_t = {}
-        if len(s) != len(t):
+        hashh_s = {}
+        hashh_t = {}
+        if len(s)!= len(t):
             return False
         for i in range(len(s)):
-            ch_s = s[i]
-            ch_t = t[i]
-            
-            if ch_s not in hassh_s:
-                hassh_s[ch_s] = ch_t
-            else:
-                if hassh_s[ch_s] != ch_t:
-                    return False
-
-            if ch_t not in hassh_t:
-                hassh_t[ch_t] = ch_s
-            else:
-                if hassh_t[ch_t] != ch_s:
-                    return False
-
+            curr_s = s[i]
+            curr_t = t[i]
+            if curr_s in hashh_s and hashh_s[curr_s] != curr_t:
+                return False
+            hashh_s[curr_s] = curr_t
+            if curr_t in hashh_t and hashh_t[curr_t] != curr_s:
+                return False
+            hashh_t[curr_t] = curr_s
         return True
-
+            

@@ -1,11 +1,10 @@
 class Solution(object):
     def twoSum(self, nums, target):
-        hashh = {}
-        for i in range(len(nums)):
-            value = target - nums[i]
-            if value in hashh:
-                return [hashh[value],i]
-            else:
-                hashh[nums[i]] = i
-        
+        seen = {}
+        for i , num in enumerate(nums):
+            complement = target  - num
+            if complement in seen:
+                return [seen[complement],i]
+            seen[num] = i
+        return[]
         

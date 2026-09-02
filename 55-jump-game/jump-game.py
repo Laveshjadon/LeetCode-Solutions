@@ -1,8 +1,12 @@
 class Solution(object):
     def canJump(self, nums):
-        farthest = 0
+        remaining = 0
         for i in range(len(nums)):
-            if i > farthest:
+            if i > remaining:
                 return False
-            farthest = max(farthest,i + nums[i])
-        return True
+            remaining = max(remaining,i + nums[i]) 
+            if remaining >= len(nums) - 1:
+                return True
+        return True 
+
+

@@ -1,23 +1,18 @@
 class Solution(object):
     def combinationSum(self, candidates, target):
-
-        res = []
-        def backtrack(start_index, current_path, remaining_target):
-            if remaining_target == 0:
-                res.append(list(current_path))
+        result = []
+        def backtrack(path,i,defference):
+            if defference == 0:
+                result.append(path[:])
                 return
-            if remaining_target < 0:
-                return 
-            for i in range(start_index,len(candidates)):
-                current_path.append(candidates[i])
+            if defference < 0:
+                return
+            for j in range(i,len(candidates)):
+                path.append(candidates[j])
 
-
-                backtrack(i,current_path, remaining_target - candidates[i])
-
-                current_path.pop()
-
-        backtrack(0,[],target)
-        return res
-
+                backtrack(path,j,defference-candidates[j])
+                path.pop()
+        backtrack([],0,target)
+        return result
 
         

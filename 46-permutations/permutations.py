@@ -1,20 +1,21 @@
 class Solution(object):
     def permute(self, nums):
         result = []
-        def backtracking(path,used):
+        def backtrack(path,used):
             if len(path) == len(nums):
                 result.append(path[:])
+                return
             for i in range(len(nums)):
                 if used[i]:
                     continue
-                path.append(nums[i])
                 used[i] = True
-                backtracking(path,used)
-
-                path.pop()
+                path.append(nums[i])
+                backtrack(path,used)
                 used[i] = False
-        backtracking([],[False]*len(nums))
+                path.pop()
+        backtrack([],[False]*len(nums))
         return result
+            
 
             
 

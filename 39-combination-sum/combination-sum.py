@@ -5,14 +5,14 @@ class Solution(object):
             if defference == 0:
                 result.append(path[:])
                 return
-            if defference < 0:
+            if i >= len(candidates) or defference < 0:
                 return
-            for j in range(i,len(candidates)):
-                if defference < 0:
-                   continue
-                path.append(candidates[j])
-                backtrack(path,j,defference-candidates[j])
-                path.pop()
+            
+            path.append(candidates[i])
+            backtrack(path,i,defference-candidates[i])
+            path.pop()
+            backtrack(path,i+1,defference)
+
         backtrack([],0,target)
         return result
 

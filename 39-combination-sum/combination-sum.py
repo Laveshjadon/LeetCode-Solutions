@@ -8,11 +8,13 @@ class Solution(object):
             if defference < 0:
                 return
             for j in range(i,len(candidates)):
+                if defference < 0:
+                   continue
                 path.append(candidates[j])
-
                 backtrack(path,j,defference-candidates[j])
                 path.pop()
         backtrack([],0,target)
         return result
+
 
         

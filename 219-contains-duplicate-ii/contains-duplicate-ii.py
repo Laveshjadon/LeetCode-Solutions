@@ -1,14 +1,12 @@
 class Solution(object):
     def containsNearbyDuplicate(self, nums, k):
-        hashh = {}
-        for i in range(len(nums)):
-            if nums[i] in hashh and  abs(hashh[nums[i]]-i) <= k:
+        window = set()
+        for i, num in enumerate(nums):
+            if num in window:
                 return True
-            else:
-                hashh[nums[i]] = i
+            window.add(num)
+            if len(window) > k:
+                window.remove(nums[i - k])
         return False
 
-                
-
-        
         
